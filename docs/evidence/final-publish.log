@@ -1,0 +1,5 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  MagicCar.SiteDoctor.Core -> /workspace/scratch/3f14a0e80c2a/site-doctor/src/MagicCar.SiteDoctor.Core/bin/Release/net10.0/win-x64/MagicCar.SiteDoctor.Core.dll
+  MagicCar.SiteDoctor.Windows -> /workspace/scratch/3f14a0e80c2a/site-doctor/src/MagicCar.SiteDoctor.Windows/bin/Release/net10.0-windows/win-x64/MagicCar.SiteDoctor.dll
+  MagicCar.SiteDoctor.Windows -> /workspace/scratch/3f14a0e80c2a/site-doctor/artifacts/win-x64/

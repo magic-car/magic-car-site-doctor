@@ -1,0 +1,6 @@
+Test run for /workspace/scratch/3f14a0e80c2a/site-doctor/tests/MagicCar.SiteDoctor.Core.Tests/bin/Release/net10.0/MagicCar.SiteDoctor.Core.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+WARNING: Overwriting results file: /workspace/scratch/3f14a0e80c2a/site-doctor/artifacts/test-results/core-tests.trx
+Results File: /workspace/scratch/3f14a0e80c2a/site-doctor/artifacts/test-results/core-tests.trx
+
+Passed!  - Failed:     0, Passed:   108, Skipped:     0, Total:   108, Duration: 215 ms - MagicCar.SiteDoctor.Core.Tests.dll (net10.0)

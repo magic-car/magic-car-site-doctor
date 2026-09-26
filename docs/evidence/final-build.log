@@ -1,0 +1,9 @@
+  MagicCar.SiteDoctor.Core -> /workspace/scratch/3f14a0e80c2a/site-doctor/src/MagicCar.SiteDoctor.Core/bin/Release/net10.0/MagicCar.SiteDoctor.Core.dll
+  MagicCar.SiteDoctor.Windows -> /workspace/scratch/3f14a0e80c2a/site-doctor/src/MagicCar.SiteDoctor.Windows/bin/Release/net10.0-windows/MagicCar.SiteDoctor.dll
+  MagicCar.SiteDoctor.Core.Tests -> /workspace/scratch/3f14a0e80c2a/site-doctor/tests/MagicCar.SiteDoctor.Core.Tests/bin/Release/net10.0/MagicCar.SiteDoctor.Core.Tests.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:03.46

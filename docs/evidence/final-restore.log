@@ -1,0 +1,4 @@
+  Determining projects to restore...
+  Restored /workspace/scratch/3f14a0e80c2a/site-doctor/src/MagicCar.SiteDoctor.Core/MagicCar.SiteDoctor.Core.csproj (in 246 ms).
+  Restored /workspace/scratch/3f14a0e80c2a/site-doctor/tests/MagicCar.SiteDoctor.Core.Tests/MagicCar.SiteDoctor.Core.Tests.csproj (in 287 ms).
+  1 of 3 projects are up-to-date for restore.

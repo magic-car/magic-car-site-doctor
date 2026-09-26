@@ -1,0 +1,8 @@
+{
+  "assertions": 33,
+  "failed": 0,
+  "environment": "Linux headless Chromium; synthetic bridge only",
+  "nativeWindowsVerified": false,
+  "remoteRequests": 0,
+  "errors": []
+}

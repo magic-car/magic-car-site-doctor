@@ -1,0 +1,53 @@
+name: Windows development verification
+on:
+  push:
+    branches: [develop, 'feature/**']
+  pull_request:
+    branches: [develop]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: site-doctor-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 20
+    env:
+      DOTNET_CLI_TELEMETRY_OPTOUT: '1'
+      DOTNET_NOLOGO: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v6
+        with:
+          global-json-file: global.json
+      - name: Build and test on Windows
+        shell: pwsh
+        run: ./scripts/build.ps1
+      - name: Publish read-only Windows x64 ZIP
+        shell: pwsh
+        run: ./scripts/publish.ps1
+      - name: Verify published executable rejects repair commands
+        shell: pwsh
+        run: |
+          $exe = Resolve-Path artifacts/win-x64/MagicCar.SiteDoctor.exe
+          foreach ($action in @('RestartCloudflared', 'RestartSpooler', 'RestartPrintGateway', 'RestartAutoPost')) {
+            $process = Start-Process -FilePath $exe -ArgumentList @('--repair', $action) -PassThru
+            if (-not $process.WaitForExit(15000)) { $process.Kill(); throw "Read-only guard timed out for $action" }
+            if ($process.ExitCode -ne 2) { throw "Read-only guard failed for $action (exit $($process.ExitCode))" }
+          }
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MagicCar.SiteDoctor-win-x64
+          path: |
+            artifacts/MagicCar.SiteDoctor-win-x64.zip
+            artifacts/MagicCar.SiteDoctor-win-x64.sha256
+          if-no-files-found: error
+          retention-days: 14
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Windows-core-test-results
+          path: artifacts/test-results/*.trx
+          if-no-files-found: warn

@@ -1,0 +1,16 @@
+{
+  "recovery": { "enabled": false },
+  "internetProbeUrl": "https://example.com/",
+  "tunnelReadinessUrl": "http://127.0.0.1:20241/ready",
+  "publicEndpoints": [
+    { "name": "Al-Arabi", "url": "https://arabi-api.e-mall.site/Health", "expectedUnauthenticatedStatus": 403 },
+    { "name": "Printing", "url": "https://print.magic-car.app/health", "expectedUnauthenticatedStatus": 403 }
+  ],
+  "printGatewayHealthUrl": "http://127.0.0.1:8787/health",
+  "printerQueueName": "EPSON77D4D3 (L3250 Series)",
+  "autoPostHealthUrl": "http://127.0.0.1:5555/Health",
+  "interBasePort": 3050,
+  "httpTimeoutSeconds": 5,
+  "checkTimeoutSeconds": 20,
+  "staleJobMinutes": 15
+}

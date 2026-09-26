@@ -1,0 +1,6 @@
+{
+  "name": "site-doctor-ui-verification",
+  "private": true,
+  "scripts": { "test": "node verify.cjs" },
+  "devDependencies": { "playwright": "1.62.1" }
+}

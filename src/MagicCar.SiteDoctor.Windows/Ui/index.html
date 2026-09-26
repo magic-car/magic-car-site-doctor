@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'">
+  <title>Magic Car · Site Doctor</title>
+  <link rel="stylesheet" href="app.css">
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-pulse" viewBox="0 0 24 24"><path d="M2 12h5l3-8 4 16 3-8h5"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M5 6.5h14M5 17.5h14"/></symbol>
+    <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M6 18h12a4 4 0 0 0 .5-8A6.5 6.5 0 0 0 6 8a5 5 0 0 0 0 10Z"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="m10 13 4-4M8 15l-1 1a4 4 0 0 1-6-6l4-4a4 4 0 0 1 6 0m2 3 1-1a4 4 0 0 1 6 6l-4 4a4 4 0 0 1-6 0" transform="translate(1 1)"/></symbol>
+    <symbol id="i-printer" viewBox="0 0 24 24"><path d="M7 8V3h10v5M7 17H4V9h16v8h-3M7 14h10v7H7zM16 11h1"/></symbol>
+    <symbol id="i-gateway" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M7 20h10M12 16v4m-4-9 3 3 5-5"/></symbol>
+    <symbol id="i-stack" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5 9-5Zm-9 9 9 5 9-5M3 16l9 5 9-5"/></symbol>
+    <symbol id="i-server" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01M12 6.5h5M12 17.5h5"/></symbol>
+    <symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 4 16 4 16 0V5M4 12c0 4 16 4 16 0"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="m12 3 8 3v6c0 4-5 8-8 9-3-1-8-5-8-9V6l8-3Zm-4 9 3 3 5-6"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="m14 7-5 5 5 5"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+  </svg>
+  <header class="topbar">
+    <div class="brand" dir="ltr"><span class="brand-mark"><svg><use href="#i-pulse"/></svg></span><div><b>MAGIC CAR</b><span>SITE DOCTOR</span></div></div>
+    <div class="top-meta"><span class="mode" id="mode-label"><svg><use href="#i-shield"/></svg>تشخيص فقط</span><span class="machine" id="machine" dir="ltr">WINDOWS · LOCAL</span></div>
+  </header>
+  <main>
+    <section class="hero">
+      <div><p class="eyebrow">كل جزء من النظام، في مكان واحد</p><h1>اطمئن على سير العمل.</h1><p class="intro">افحص الاتصال والطباعة وخدمات العربي، واعرف أين تحتاج المساعدة.</p></div>
+      <div class="run-controls"><button id="run-button" class="primary" disabled><svg><use href="#i-pulse"/></svg><span>بدء الفحص</span></button><span class="last-check" id="last-check">لم يُجرَ فحص في هذه الجلسة</span></div>
+    </section>
+
+    <section class="workspace" aria-label="تشخيص مكونات النظام">
+      <div class="workspace-heading"><div class="section-title"><span class="live-dot"></span><h2>خريطة النظام</h2><span id="progress-count">0 / 9</span></div><div class="legend"><span data-status="Healthy">يعمل</span><span data-status="Warning">تنبيه</span><span data-status="Failed">عطل</span><span data-status="NotChecked">لم يُفحص</span></div></div>
+      <div id="local-notice" class="local-notice" hidden>سنواصل فحص الخدمات المحلية حتى مع تعذّر الاتصال الخارجي.</div>
+      <div class="network-path" id="network-path"></div>
+      <div class="split-connector" aria-hidden="true"><span></span></div>
+      <div class="branches">
+        <section class="branch" id="branch-printing"><header><div><span class="branch-number">01</span><h3>الطباعة</h3></div><span class="branch-status" id="printing-status">لم يُفحص</span></header><div class="branch-nodes" id="printing-nodes"></div></section>
+        <section class="branch" id="branch-alarabi"><header><div><span class="branch-number">02</span><h3>نظام العربي</h3></div><span class="branch-status" id="alarabi-status">لم يُفحص</span></header><div class="branch-nodes" id="alarabi-nodes"></div><p class="supervisor-note">Guardian يراقب الخادم؛ لا تمر الطلبات من خلاله.</p></section>
+      </div>
+      <footer class="workspace-footer"><span><svg><use href="#i-shield"/></svg>الفحص لا يغيّر الخدمات ولا يرسل مهام طباعة</span><span id="elapsed">فحص عند الطلب</span></footer>
+    </section>
+
+    <section class="summary" id="summary" aria-live="polite" aria-atomic="true"><div class="summary-icon"><svg><use href="#i-pulse"/></svg></div><div><h2 id="summary-title">جاهز عندما تحتاجه</h2><p id="summary-text">ابدأ الفحص لعرض الحالة الحالية. يمكنك فتح أي مكوّن للاطلاع على تفاصيله.</p><ul id="issues" hidden></ul></div></section>
+    <div id="toast" class="toast" role="status" hidden></div>
+    <section class="history"><button id="history-toggle" aria-expanded="false"><svg><use href="#i-clock"/></svg>النشاط الأخير<span id="history-count">0</span><svg class="chevron"><use href="#i-arrow"/></svg></button><ol id="history-list" hidden></ol></section>
+    <footer class="page-footer"><span>MAGIC CAR <b>·</b> SITE DOCTOR</span><span>الحالة تعكس الاختبارات المنفذة فقط، وليست إثباتاً لإتمام معاملة أو خروج ورقة.</span><span dir="ltr">v0.1.0</span></footer>
+  </main>
+  <dialog id="details" aria-labelledby="detail-title"><div class="detail-head"><div><p class="eyebrow">تفاصيل المكوّن</p><h2 id="detail-title"></h2></div><button id="close-details" class="icon-button" aria-label="إغلاق التفاصيل"><svg><use href="#i-close"/></svg></button></div><span id="detail-status" class="status-pill"></span><p id="detail-message"></p><dl id="evidence" dir="ltr"></dl><p id="checked-at" class="muted"></p><div class="detail-actions"><button id="queue-button" class="secondary" hidden>فتح قائمة انتظار الطابعة</button><button id="repair-button" class="secondary" hidden disabled>إعادة تشغيل المكوّن</button><p id="repair-reason" class="muted"></p></div></dialog>
+</body>
+</html>

@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="src/MagicCar.SiteDoctor.Core/MagicCar.SiteDoctor.Core.csproj" />
+  <Project Path="src/MagicCar.SiteDoctor.Windows/MagicCar.SiteDoctor.Windows.csproj" />
+  <Project Path="tests/MagicCar.SiteDoctor.Core.Tests/MagicCar.SiteDoctor.Core.Tests.csproj" />
+</Solution>

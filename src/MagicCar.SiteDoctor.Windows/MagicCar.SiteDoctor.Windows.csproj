@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <RuntimeIdentifiers>win-x64</RuntimeIdentifiers>
+    <AssemblyName>MagicCar.SiteDoctor</AssemblyName>
+    <RootNamespace>MagicCar.SiteDoctor</RootNamespace>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <Version>0.1.0</Version>
+    <Product>Magic Car Site Doctor</Product>
+    <Description>Local, on-demand Magic Car diagnostics</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.4191.47" />
+    <PackageReference Include="System.ServiceProcess.ServiceController" Version="10.0.12" />
+    <Content Include="Ui/**/*" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../MagicCar.SiteDoctor.Core/Configuration/site-doctor.json" CopyToOutputDirectory="PreserveNewest" Link="site-doctor.json" />
+    <ProjectReference Include="../MagicCar.SiteDoctor.Core/MagicCar.SiteDoctor.Core.csproj" />
+  </ItemGroup>
+</Project>
